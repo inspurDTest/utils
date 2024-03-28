@@ -3,7 +3,7 @@ package testing
 import (
 	"testing"
 
-	th "github.com/gophercloud/gophercloud/testhelper"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"
 )
 

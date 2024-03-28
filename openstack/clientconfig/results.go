@@ -136,6 +136,15 @@ type AuthInfo struct {
 	// false, it will not cache these settings, but re-authentication will not be
 	// possible.  This setting defaults to false.
 	AllowReauth bool `yaml:"allow_reauth,omitempty" json:"allow_reauth,omitempty"`
+
+	// 王玉东添加
+	// type for authentication exsample password
+	GrantType string `yaml:"grant_type,omitempty" json:"grant_type,omitempty"`
+
+	// fixed value: admin-cli
+	ClientId  string `yaml:"client_id,omitempty" json:"client_id,omitempty"`
+
+	NetworkEndpoint string `yaml:"network_endpoint,omitempty" json:"client_id,omitempty"`
 }
 
 // Region represents a region included as part of cloud in clouds.yaml

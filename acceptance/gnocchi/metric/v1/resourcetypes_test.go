@@ -6,7 +6,7 @@ package v1
 import (
 	"testing"
 
-	"github.com/gophercloud/gophercloud/acceptance/tools"
+	"github.com/inspurDTest/gophercloud/acceptance/tools"
 	"github.com/gophercloud/utils/acceptance/clients"
 	"github.com/gophercloud/utils/gnocchi/metric/v1/resourcetypes"
 )

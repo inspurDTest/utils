@@ -11,8 +11,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/gophercloud/gophercloud/acceptance/tools"
-	th "github.com/gophercloud/gophercloud/testhelper"
+	"github.com/inspurDTest/gophercloud/acceptance/tools"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 
 	"github.com/gophercloud/utils/openstack/clientconfig"
 	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"

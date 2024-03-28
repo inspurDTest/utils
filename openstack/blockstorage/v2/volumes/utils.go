@@ -1,8 +1,8 @@
 package volumes
 
 import (
-	"github.com/gophercloud/gophercloud"
-	"github.com/gophercloud/gophercloud/openstack/blockstorage/v2/volumes"
+	"github.com/inspurDTest/gophercloud"
+	"github.com/inspurDTest/gophercloud/openstack/blockstorage/v2/volumes"
 )
 
 // IDFromName is a convenience function that returns a volume's ID given its name.

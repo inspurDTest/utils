@@ -6,10 +6,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/gophercloud/gophercloud"
+	"github.com/inspurDTest/gophercloud"
 	"github.com/gophercloud/utils/openstack/clientconfig"
 
-	th "github.com/gophercloud/gophercloud/testhelper"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 	yaml "gopkg.in/yaml.v2"
 )
 

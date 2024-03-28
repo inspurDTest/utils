@@ -5,7 +5,7 @@ import (
 
 	"github.com/gophercloud/utils/openstack/clientconfig"
 
-	th "github.com/gophercloud/gophercloud/testhelper"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 	yaml "gopkg.in/yaml.v2"
 )
 

@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gophercloud/gophercloud/openstack/compute/v2/servers"
+	"github.com/inspurDTest/gophercloud/openstack/compute/v2/servers"
 
-	acc_compute "github.com/gophercloud/gophercloud/acceptance/openstack/compute/v2"
-	acc_tools "github.com/gophercloud/gophercloud/acceptance/tools"
+	acc_compute "github.com/inspurDTest/gophercloud/acceptance/openstack/compute/v2"
+	acc_tools "github.com/inspurDTest/gophercloud/acceptance/tools"
 
 	osClient "github.com/gophercloud/utils/client"
 	cc "github.com/gophercloud/utils/openstack/clientconfig"

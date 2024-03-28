@@ -11,8 +11,8 @@ Example usage with the default logger:
 		"net/http"
 		"os"
 
-		"github.com/gophercloud/gophercloud"
-		"github.com/gophercloud/gophercloud/openstack"
+		"github.com/inspurDTest/gophercloud"
+		"github.com/inspurDTest/gophercloud/openstack"
 		"github.com/gophercloud/utils/client"
 		"github.com/gophercloud/utils/openstack/clientconfig"
 	)
@@ -55,8 +55,8 @@ Example usage with the custom logger:
 		"net/http"
 		"os"
 
-		"github.com/gophercloud/gophercloud"
-		"github.com/gophercloud/gophercloud/openstack"
+		"github.com/inspurDTest/gophercloud"
+		"github.com/inspurDTest/gophercloud/openstack"
 		"github.com/gophercloud/utils/client"
 		"github.com/gophercloud/utils/openstack/clientconfig"
 		log "github.com/sirupsen/logrus"
@@ -108,8 +108,8 @@ Example usage with additinal headers:
 		"net/http"
 		"os"
 
-		"github.com/gophercloud/gophercloud"
-		"github.com/gophercloud/gophercloud/openstack"
+		"github.com/inspurDTest/gophercloud"
+		"github.com/inspurDTest/gophercloud/openstack"
 		"github.com/gophercloud/utils/client"
 		"github.com/gophercloud/utils/openstack/clientconfig"
 	)

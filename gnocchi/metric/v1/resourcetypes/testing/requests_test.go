@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/gophercloud/gophercloud/pagination"
-	th "github.com/gophercloud/gophercloud/testhelper"
+	"github.com/inspurDTest/gophercloud/pagination"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 	"github.com/gophercloud/utils/gnocchi/metric/v1/resourcetypes"
 	fake "github.com/gophercloud/utils/gnocchi/testhelper/client"
 )

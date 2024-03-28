@@ -3,8 +3,8 @@ package resources
 import (
 	"time"
 
-	"github.com/gophercloud/gophercloud"
-	"github.com/gophercloud/gophercloud/pagination"
+	"github.com/inspurDTest/gophercloud"
+	"github.com/inspurDTest/gophercloud/pagination"
 	"github.com/gophercloud/utils/gnocchi"
 )
 

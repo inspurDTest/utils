@@ -8,13 +8,14 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/gophercloud/gophercloud"
-	"github.com/gophercloud/gophercloud/openstack"
+	"github.com/inspurDTest/gophercloud"
+	"github.com/inspurDTest/gophercloud/openstack"
 	"github.com/gophercloud/utils/env"
 	"github.com/gophercloud/utils/gnocchi"
 	"github.com/gophercloud/utils/internal"
 
 	"github.com/hashicorp/go-uuid"
+	"k8s.io/klog/v2"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -391,13 +392,16 @@ func AuthOptions(opts *ClientOpts) (*gophercloud.AuthOptions, error) {
 			cloud.AuthInfo = new(AuthInfo)
 		}
 	}
-
+    // 获取API版本
 	identityAPI := determineIdentityAPI(cloud, opts)
+	klog.V(4).Infof("identityAPI value: %v", identityAPI)
 	switch identityAPI {
 	case "2.0", "2":
 		return v2auth(cloud, opts)
 	case "3":
 		return v3auth(cloud, opts)
+	case "iam":
+		return iamauth(cloud, opts)
 	}
 
 	return nil, fmt.Errorf("Unable to build AuthOptions")
@@ -426,6 +430,10 @@ func determineIdentityAPI(cloud *Cloud, opts *ClientOpts) string {
 
 			if strings.Contains(cloud.AuthInfo.AuthURL, "v3") {
 				identityAPI = "3"
+			}
+
+			if strings.Contains(cloud.AuthInfo.AuthURL, "token") {
+				identityAPI = "iam"
 			}
 		}
 	}
@@ -700,6 +708,181 @@ func v3auth(cloud *Cloud, opts *ClientOpts) (*gophercloud.AuthOptions, error) {
 		ApplicationCredentialName:   cloud.AuthInfo.ApplicationCredentialName,
 		ApplicationCredentialSecret: cloud.AuthInfo.ApplicationCredentialSecret,
 		AllowReauth:                 cloud.AuthInfo.AllowReauth,
+	}
+
+	// If an auth_type of "token" was specified, then make sure
+	// Gophercloud properly authenticates with a token. This involves
+	// unsetting a few other auth options. The reason this is done
+	// here is to wait until all auth settings (both in clouds.yaml
+	// and via environment variables) are set and then unset them.
+	if strings.Contains(string(cloud.AuthType), "token") || ao.TokenID != "" {
+		ao.Username = ""
+		ao.Password = ""
+		ao.UserID = ""
+		ao.DomainID = ""
+		ao.DomainName = ""
+	}
+
+	// Check for absolute minimum requirements.
+	if ao.IdentityEndpoint == "" {
+		err := gophercloud.ErrMissingInput{Argument: "auth_url"}
+		return nil, err
+	}
+
+	return ao, nil
+}
+
+
+// iamauth creates a v3-compatible gophercloud.AuthOptions struct.
+func iamauth(cloud *Cloud, opts *ClientOpts) (*gophercloud.AuthOptions, error) {
+	// Environment variable overrides.
+	envPrefix := "OS_"
+	if opts != nil && opts.EnvPrefix != "" {
+		envPrefix = opts.EnvPrefix
+	}
+
+	if cloud.AuthInfo.AuthURL == "" {
+		if v := env.Getenv(envPrefix + "AUTH_URL"); v != "" {
+			cloud.AuthInfo.AuthURL = v
+		}
+	}
+
+	if cloud.AuthInfo.Token == "" {
+		if v := env.Getenv(envPrefix + "TOKEN"); v != "" {
+			cloud.AuthInfo.Token = v
+		}
+
+		if v := env.Getenv(envPrefix + "AUTH_TOKEN"); v != "" {
+			cloud.AuthInfo.Token = v
+		}
+	}
+
+	if cloud.AuthInfo.Username == "" {
+		if v := env.Getenv(envPrefix + "USERNAME"); v != "" {
+			cloud.AuthInfo.Username = v
+		}
+	}
+
+	if cloud.AuthInfo.UserID == "" {
+		if v := env.Getenv(envPrefix + "USER_ID"); v != "" {
+			cloud.AuthInfo.UserID = v
+		}
+	}
+
+	if cloud.AuthInfo.Password == "" {
+		if v := env.Getenv(envPrefix + "PASSWORD"); v != "" {
+			cloud.AuthInfo.Password = v
+		}
+	}
+
+	if cloud.AuthInfo.ProjectID == "" {
+		if v := env.Getenv(envPrefix + "TENANT_ID"); v != "" {
+			cloud.AuthInfo.ProjectID = v
+		}
+
+		if v := env.Getenv(envPrefix + "PROJECT_ID"); v != "" {
+			cloud.AuthInfo.ProjectID = v
+		}
+	}
+
+	if cloud.AuthInfo.ProjectName == "" {
+		if v := env.Getenv(envPrefix + "TENANT_NAME"); v != "" {
+			cloud.AuthInfo.ProjectName = v
+		}
+
+		if v := env.Getenv(envPrefix + "PROJECT_NAME"); v != "" {
+			cloud.AuthInfo.ProjectName = v
+		}
+	}
+
+	if cloud.AuthInfo.DomainID == "" {
+		if v := env.Getenv(envPrefix + "DOMAIN_ID"); v != "" {
+			cloud.AuthInfo.DomainID = v
+		}
+	}
+
+	if cloud.AuthInfo.DomainName == "" {
+		if v := env.Getenv(envPrefix + "DOMAIN_NAME"); v != "" {
+			cloud.AuthInfo.DomainName = v
+		}
+	}
+
+	if cloud.AuthInfo.DefaultDomain == "" {
+		if v := env.Getenv(envPrefix + "DEFAULT_DOMAIN"); v != "" {
+			cloud.AuthInfo.DefaultDomain = v
+		}
+	}
+
+	if cloud.AuthInfo.ProjectDomainID == "" {
+		if v := env.Getenv(envPrefix + "PROJECT_DOMAIN_ID"); v != "" {
+			cloud.AuthInfo.ProjectDomainID = v
+		}
+	}
+
+	if cloud.AuthInfo.ProjectDomainName == "" {
+		if v := env.Getenv(envPrefix + "PROJECT_DOMAIN_NAME"); v != "" {
+			cloud.AuthInfo.ProjectDomainName = v
+		}
+	}
+
+	if cloud.AuthInfo.UserDomainID == "" {
+		if v := env.Getenv(envPrefix + "USER_DOMAIN_ID"); v != "" {
+			cloud.AuthInfo.UserDomainID = v
+		}
+	}
+
+	if cloud.AuthInfo.UserDomainName == "" {
+		if v := env.Getenv(envPrefix + "USER_DOMAIN_NAME"); v != "" {
+			cloud.AuthInfo.UserDomainName = v
+		}
+	}
+
+	if cloud.AuthInfo.ApplicationCredentialID == "" {
+		if v := env.Getenv(envPrefix + "APPLICATION_CREDENTIAL_ID"); v != "" {
+			cloud.AuthInfo.ApplicationCredentialID = v
+		}
+	}
+
+	if cloud.AuthInfo.ApplicationCredentialName == "" {
+		if v := env.Getenv(envPrefix + "APPLICATION_CREDENTIAL_NAME"); v != "" {
+			cloud.AuthInfo.ApplicationCredentialName = v
+		}
+	}
+
+	if cloud.AuthInfo.ApplicationCredentialSecret == "" {
+		if v := env.Getenv(envPrefix + "APPLICATION_CREDENTIAL_SECRET"); v != "" {
+			cloud.AuthInfo.ApplicationCredentialSecret = v
+		}
+	}
+
+	if cloud.AuthInfo.SystemScope == "" {
+		if v := env.Getenv(envPrefix + "SYSTEM_SCOPE"); v != "" {
+			cloud.AuthInfo.SystemScope = v
+		}
+	}
+
+	// Build a scope and try to do it correctly.
+	// https://github.com/openstack/os-client-config/blob/master/os_client_config/config.py#L595
+	scope := new(gophercloud.AuthScope)
+
+	ao := &gophercloud.AuthOptions{
+		Scope:                       scope,
+		IdentityEndpoint:            cloud.AuthInfo.AuthURL,
+		TokenID:                     cloud.AuthInfo.Token,
+		Username:                    cloud.AuthInfo.Username,
+		UserID:                      cloud.AuthInfo.UserID,
+		Password:                    cloud.AuthInfo.Password,
+		TenantID:                    cloud.AuthInfo.ProjectID,
+		TenantName:                  cloud.AuthInfo.ProjectName,
+		DomainID:                    cloud.AuthInfo.UserDomainID,
+		DomainName:                  cloud.AuthInfo.UserDomainName,
+		ApplicationCredentialID:     cloud.AuthInfo.ApplicationCredentialID,
+		ApplicationCredentialName:   cloud.AuthInfo.ApplicationCredentialName,
+		ApplicationCredentialSecret: cloud.AuthInfo.ApplicationCredentialSecret,
+		AllowReauth:                 cloud.AuthInfo.AllowReauth,
+		GrantType:                   cloud.AuthInfo.GrantType,
+		ClientId:                    cloud.AuthInfo.ClientId,
+		NetworkEndpoint:             cloud.AuthInfo.NetworkEndpoint,
 	}
 
 	// If an auth_type of "token" was specified, then make sure

@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	th "github.com/gophercloud/gophercloud/testhelper"
+	th "github.com/inspurDTest/gophercloud/testhelper"
 	"github.com/gophercloud/utils/openstack/baremetal/v1/nodes"
 )
 

@@ -1,7 +1,7 @@
 package testing
 
 import (
-	"github.com/gophercloud/gophercloud"
+	"github.com/inspurDTest/gophercloud"
 	"github.com/gophercloud/utils/openstack/clientconfig"
 )
 

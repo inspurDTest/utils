@@ -3,9 +3,9 @@ package testing
 import (
 	"testing"
 
-	o "github.com/gophercloud/gophercloud/openstack/objectstorage/v1/objects"
-	th "github.com/gophercloud/gophercloud/testhelper"
-	fake "github.com/gophercloud/gophercloud/testhelper/client"
+	o "github.com/inspurDTest/gophercloud/openstack/objectstorage/v1/objects"
+	th "github.com/inspurDTest/gophercloud/testhelper"
+	fake "github.com/inspurDTest/gophercloud/testhelper/client"
 	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"
 )
 

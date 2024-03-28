@@ -1,8 +1,8 @@
 package availabilityzones
 
 import (
-	"github.com/gophercloud/gophercloud"
-	"github.com/gophercloud/gophercloud/openstack/compute/v2/extensions/availabilityzones"
+	"github.com/inspurDTest/gophercloud"
+	"github.com/inspurDTest/gophercloud/openstack/compute/v2/extensions/availabilityzones"
 )
 
 // ListAvailableAvailabilityZones is a convenience function that return a slice of available Availability Zones.
