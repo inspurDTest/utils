@@ -3,8 +3,8 @@ package metrics
 import (
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/pagination"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/archivepolicies"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/resources"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/archivepolicies"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/resources"
 )
 
 type commonResult struct {

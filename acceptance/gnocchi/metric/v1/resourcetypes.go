@@ -5,7 +5,7 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/acceptance/tools"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/resourcetypes"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/resourcetypes"
 )
 
 // CreateResourceType creates Gnocchi resource type. An error will be returned if the

@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	th "github.com/inspurDTest/gophercloud/testhelper"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/status"
-	fake "github.com/gophercloud/utils/gnocchi/testhelper/client"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/status"
+	fake "github.com/inspurDTest/utils/gnocchi/testhelper/client"
 )
 
 func TestGetWithDetails(t *testing.T) {

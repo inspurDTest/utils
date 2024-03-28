@@ -9,10 +9,10 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/openstack"
-	"github.com/gophercloud/utils/client"
-	"github.com/gophercloud/utils/env"
-	"github.com/gophercloud/utils/gnocchi"
-	"github.com/gophercloud/utils/openstack/clientconfig"
+	"github.com/inspurDTest/utils/client"
+	"github.com/inspurDTest/utils/env"
+	"github.com/inspurDTest/utils/gnocchi"
+	"github.com/inspurDTest/utils/openstack/clientconfig"
 )
 
 // NewGnocchiV1Client returns a *ServiceClient for making calls

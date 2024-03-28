@@ -1,4 +1,4 @@
-module github.com/gophercloud/utils
+module github.com/inspurDTest/utils
 
 require (
 	github.com/hashicorp/go-uuid v1.0.3

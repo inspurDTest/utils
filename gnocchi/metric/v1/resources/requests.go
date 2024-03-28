@@ -5,7 +5,7 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/pagination"
-	"github.com/gophercloud/utils/gnocchi"
+	"github.com/inspurDTest/utils/gnocchi"
 )
 
 // ListOptsBuilder allows extensions to add additional parameters to the

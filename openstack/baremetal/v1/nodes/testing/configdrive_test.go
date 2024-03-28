@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	th "github.com/inspurDTest/gophercloud/testhelper"
-	"github.com/gophercloud/utils/openstack/baremetal/v1/nodes"
+	"github.com/inspurDTest/utils/openstack/baremetal/v1/nodes"
 )
 
 func TestUserDataFromMap(t *testing.T) {

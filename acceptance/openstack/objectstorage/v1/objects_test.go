@@ -14,8 +14,8 @@ import (
 	"github.com/inspurDTest/gophercloud/acceptance/tools"
 	th "github.com/inspurDTest/gophercloud/testhelper"
 
-	"github.com/gophercloud/utils/openstack/clientconfig"
-	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"
+	"github.com/inspurDTest/utils/openstack/clientconfig"
+	"github.com/inspurDTest/utils/openstack/objectstorage/v1/objects"
 )
 
 func TestObjectStreamingUploadDownload(t *testing.T) {

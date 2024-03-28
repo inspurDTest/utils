@@ -2,7 +2,7 @@ package testing
 
 import (
 	"github.com/inspurDTest/gophercloud"
-	"github.com/gophercloud/utils/openstack/clientconfig"
+	"github.com/inspurDTest/utils/openstack/clientconfig"
 )
 
 var iTrue = true

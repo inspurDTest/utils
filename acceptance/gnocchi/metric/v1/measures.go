@@ -6,7 +6,7 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/acceptance/tools"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/measures"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/measures"
 )
 
 // CreateMeasures will create measures inside a single Gnocchi metric. An error will be returned if the

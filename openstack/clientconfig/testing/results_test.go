@@ -3,7 +3,7 @@ package testing
 import (
 	"testing"
 
-	"github.com/gophercloud/utils/openstack/clientconfig"
+	"github.com/inspurDTest/utils/openstack/clientconfig"
 
 	th "github.com/inspurDTest/gophercloud/testhelper"
 	yaml "gopkg.in/yaml.v2"

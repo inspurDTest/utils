@@ -6,8 +6,8 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/pagination"
-	"github.com/gophercloud/utils/gnocchi"
-	"github.com/gophercloud/utils/internal"
+	"github.com/inspurDTest/utils/gnocchi"
+	"github.com/inspurDTest/utils/internal"
 )
 
 type commonResult struct {

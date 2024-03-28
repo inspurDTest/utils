@@ -10,10 +10,10 @@ import (
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/openstack"
 	"github.com/inspurDTest/gophercloud/openstack/objectstorage/v1/swauth"
-	osClient "github.com/gophercloud/utils/client"
-	"github.com/gophercloud/utils/internal"
-	"github.com/gophercloud/utils/openstack/clientconfig"
-	"github.com/gophercloud/utils/terraform/mutexkv"
+	osClient "github.com/inspurDTest/utils/client"
+	"github.com/inspurDTest/utils/internal"
+	"github.com/inspurDTest/utils/openstack/clientconfig"
+	"github.com/inspurDTest/utils/terraform/mutexkv"
 )
 
 type Config struct {

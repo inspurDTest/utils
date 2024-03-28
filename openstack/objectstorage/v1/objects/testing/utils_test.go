@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	th "github.com/inspurDTest/gophercloud/testhelper"
-	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"
+	"github.com/inspurDTest/utils/openstack/objectstorage/v1/objects"
 )
 
 func TestContainerPartition(t *testing.T) {

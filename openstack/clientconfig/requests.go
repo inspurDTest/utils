@@ -10,9 +10,9 @@ import (
 
 	"github.com/inspurDTest/gophercloud"
 	"github.com/inspurDTest/gophercloud/openstack"
-	"github.com/gophercloud/utils/env"
-	"github.com/gophercloud/utils/gnocchi"
-	"github.com/gophercloud/utils/internal"
+	"github.com/inspurDTest/utils/env"
+	"github.com/inspurDTest/utils/gnocchi"
+	"github.com/inspurDTest/utils/internal"
 
 	"github.com/hashicorp/go-uuid"
 	"k8s.io/klog/v2"

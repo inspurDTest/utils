@@ -13,8 +13,8 @@ import (
 	acc_compute "github.com/inspurDTest/gophercloud/acceptance/openstack/compute/v2"
 	acc_tools "github.com/inspurDTest/gophercloud/acceptance/tools"
 
-	osClient "github.com/gophercloud/utils/client"
-	cc "github.com/gophercloud/utils/openstack/clientconfig"
+	osClient "github.com/inspurDTest/utils/client"
+	cc "github.com/inspurDTest/utils/openstack/clientconfig"
 )
 
 func TestServerCreateDestroy(t *testing.T) {

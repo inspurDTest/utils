@@ -6,7 +6,7 @@ import (
 	o "github.com/inspurDTest/gophercloud/openstack/objectstorage/v1/objects"
 	th "github.com/inspurDTest/gophercloud/testhelper"
 	fake "github.com/inspurDTest/gophercloud/testhelper/client"
-	"github.com/gophercloud/utils/openstack/objectstorage/v1/objects"
+	"github.com/inspurDTest/utils/openstack/objectstorage/v1/objects"
 )
 
 func TestIsIdentical(t *testing.T) {

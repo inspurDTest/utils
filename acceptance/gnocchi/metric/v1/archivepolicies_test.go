@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/inspurDTest/gophercloud/acceptance/tools"
-	"github.com/gophercloud/utils/acceptance/clients"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/archivepolicies"
+	"github.com/inspurDTest/utils/acceptance/clients"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/archivepolicies"
 )
 
 func TestArchivePoliciesCRUD(t *testing.T) {

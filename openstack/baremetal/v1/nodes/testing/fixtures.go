@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/gophercloud/utils/openstack/baremetal/v1/nodes"
+import "github.com/inspurDTest/utils/openstack/baremetal/v1/nodes"
 
 const IgnitionConfig = `
 {

@@ -8,10 +8,10 @@ import (
 
 	"github.com/inspurDTest/gophercloud/pagination"
 	th "github.com/inspurDTest/gophercloud/testhelper"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/archivepolicies"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/metrics"
-	"github.com/gophercloud/utils/gnocchi/metric/v1/resources"
-	fake "github.com/gophercloud/utils/gnocchi/testhelper/client"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/archivepolicies"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/metrics"
+	"github.com/inspurDTest/utils/gnocchi/metric/v1/resources"
+	fake "github.com/inspurDTest/utils/gnocchi/testhelper/client"
 )
 
 func TestList(t *testing.T) {
