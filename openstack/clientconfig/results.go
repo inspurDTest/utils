@@ -141,6 +141,7 @@ type AuthInfo struct {
 	// type for authentication exsample password
 	GrantType string `yaml:"grant_type,omitempty" json:"grant_type,omitempty"`
 
+	OctaviaURL  string  `yaml:"octavia_url,omitempty" json:"octavia_url,omitempty"`
 	// fixed value: admin-cli
 	ClientId  string `yaml:"client_id,omitempty" json:"client_id,omitempty"`
 
