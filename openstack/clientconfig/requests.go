@@ -881,6 +881,7 @@ func iamauth(cloud *Cloud, opts *ClientOpts) (*gophercloud.AuthOptions, error) {
 		ApplicationCredentialSecret: cloud.AuthInfo.ApplicationCredentialSecret,
 		AllowReauth:                 cloud.AuthInfo.AllowReauth,
 		GrantType:                   cloud.AuthInfo.GrantType,
+        OctaviaURL:                  cloud.AuthInfo.OctaviaURL,
 		ClientId:                    cloud.AuthInfo.ClientId,
 		NetworkEndpoint:             cloud.AuthInfo.NetworkEndpoint,
 	}
